@@ -92,6 +92,19 @@
     font-size: 0.92rem;
     font-weight: 600;
   }
+  .map-wrap { margin: 1.25rem 0; }
+  .map-frame {
+    width: 100%;
+    height: 320px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    display: block;
+  }
+  .map-caption {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin: 0.5rem 0 0;
+  }
   .stat-row {
     display: flex;
     gap: 1.5rem;
@@ -492,6 +505,14 @@
     <span>Grabenhaldenstrasse (Teile)</span>
     <span>Rebbergstrasse (Teile)</span>
   </div>
+
+  <div class="map-wrap">
+    <iframe class="map-frame" src="https://www.openstreetmap.org/export/embed.html?bbox=9.1834%2C47.5372%2C9.1970%2C47.5456&amp;layer=mapnik&amp;marker=47.5404%2C9.1904" loading="lazy" title="Karte des Einzugsgebiets der LEG Oberdorf Sulgen"></iframe>
+    <p class="map-caption">Ungefähres Gebiet rund um Mattenstrasse und Ebnetstrasse. Kartendaten
+      &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a>,
+      <a href="https://www.openstreetmap.org/?mlat=47.5404&amp;mlon=9.1904#map=16/47.5404/9.1904" target="_blank" rel="noopener">grössere Karte anzeigen</a>.</p>
+  </div>
+
   <p style="margin-top:1rem">Eine eigene Solaranlage braucht nicht jede Teilnehmerin und jeder Teilnehmer.
     Es reicht, wenn insgesamt genug PV-Leistung in der Gemeinschaft vorhanden ist (gesetzlich mindestens
     5% der gesamten Anschlussleistung). Das ist bei uns bereits heute der Fall, da mehrere Haushalte
