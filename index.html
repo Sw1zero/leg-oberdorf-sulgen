@@ -151,6 +151,42 @@
     padding: 0.9rem 1.1rem;
     margin-top: 1.25rem;
   }
+  .flow {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1rem 0.5rem;
+    margin-top: 1.25rem;
+  }
+  .flow-line {
+    stroke: var(--amber);
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 6 8;
+    animation: flow 0.9s linear infinite;
+  }
+  @keyframes flow {
+    to { stroke-dashoffset: -28; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .flow-line { animation: none; }
+  }
+  .pro-con {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+  .pro, .con {
+    flex: 1 1 14rem;
+    border-radius: 12px;
+    padding: 1.1rem 1.3rem;
+  }
+  .pro { background: #eef7f0; border: 1px solid #cfe8d6; }
+  .con { background: #faf3e8; border: 1px solid #f0dfc0; }
+  .pro h3, .con h3 { margin-top: 0; }
+  .pro ul.plain, .con ul.plain { margin: 0; }
+  .pro ul.plain li, .con ul.plain li { margin-bottom: 0.6rem; font-size: 0.95rem; }
 </style>
 </head>
 <body>
@@ -158,8 +194,8 @@
 <header class="hero">
   <span class="badge">Neu ab 2026 &middot; Stromgesetz (Mantelerlass)</span>
   <h1>Lokale Elektrizitätsgemeinschaft<br>Oberdorf Sulgen</h1>
-  <p class="lead">Wer im Bereich unserer Verteilkabine wohnt, kann sich zusammenschliessen und
-    <span class="big-number">40%</span> Rabatt auf die Netznutzung sichern &ndash; ohne bauliche Änderungen,
+  <p class="lead">Wer im Einzugsgebiet unserer Netzstation Ebnetstrasse 207 wohnt, kann sich zusammenschliessen
+    und <span class="big-number">40%</span> Rabatt auf die Netznutzung sichern. Ohne bauliche Änderungen,
     ohne neue Verträge mit Dritten.</p>
 </header>
 
@@ -180,7 +216,7 @@
 <section id="vorteil">
   <h2>Der Vorteil: bis zu 40% weniger Netznutzung</h2>
   <p>Die Gemeinde Sulgen gewährt je nach Netzebene 20% oder 40% Rabatt auf die Netznutzung.
-    Alle Liegenschaften an unserer Verteilkabine liegen auf der Netzebene, die den
+    Alle Liegenschaften an unserer Netzstation Ebnetstrasse 207 liegen auf der Netzebene, die den
     <strong>vollen 40%-Rabatt</strong> erhält.</p>
 
   <table>
@@ -195,7 +231,7 @@
   </table>
   <p style="font-size:0.9rem; color:var(--muted)">Werte gemäss aktuellem Tarifblatt der Technischen Betriebe Sulgen
     (Stand Q2/2026). Der Rabatt gilt nur auf dem Stromanteil, der zeitgleich mit der lokalen
-    Solarproduktion bezogen wird &ndash; also z.B. tagsüber, wenn Nachbars Solaranlage einspeist.</p>
+    Solarproduktion bezogen wird, also zum Beispiel tagsüber, wenn Nachbars Solaranlage einspeist.</p>
 
   <div class="not-discounted">
     <strong>Nicht rabattiert</strong> sind die Energielieferung selbst (15 Rp./kWh), Systemdienstleistungen,
@@ -206,22 +242,90 @@
 
 <section id="rechenbeispiel">
   <h2>Rechenbeispiel aus der Nachbarschaft</h2>
-  <p>Meine eigene Stromrechnung fürs 2. Quartal 2026 (Einfamilienhaus, 622 kWh Bezug):</p>
+  <p>Meine eigene Stromrechnung fürs 2. Quartal 2026, ein sonniges Quartal: Bezug ab Netz 622 kWh,
+    Netznutzung dafür 68.19 CHF. Das ist bereits der Bezug nach Abzug des Eigenverbrauchs aus meiner
+    eigenen PV-Anlage, die im gleichen Zeitraum fast 7'000 kWh produziert und ins Netz eingespeist hat.
+    Ohne eigene Solaranlage wäre der Bezug ein Vielfaches davon.</p>
+
   <div class="card">
     <div class="stat-row">
-      <div class="stat"><div class="num">68.19</div><div class="label">CHF Netznutzung im Quartal (heute)</div></div>
-      <div class="stat"><div class="num">&minus;40%</div><div class="label">auf den LEG-internen Anteil davon</div></div>
+      <div class="stat"><div class="num">68.19</div><div class="label">CHF Netznutzung im Quartal, heute ohne LEG</div></div>
     </div>
   </div>
-  <p>Wie viel das konkret spart, hängt davon ab, wie viel Strom effektiv gleichzeitig mit einer
-    Solaranlage in der Nachbarschaft bezogen wird. Je mehr Haushalte mit PV-Anlage mitmachen, desto
-    grösser der gemeinsame Effekt.</p>
+
+  <p>Der LEG-Rabatt greift nur auf dem Teil des Bezugs, der zeitgleich mit der Solarproduktion einer
+    Nachbarin oder eines Nachbarn erfolgt. Wie gross dieser Anteil effektiv ist, zeigt sich erst im
+    Betrieb. Als Grössenordnung zwei Annahmen:</p>
+
+  <table>
+    <thead>
+      <tr><th>Angenommener Anteil LEG-intern</th><th>Ersparnis in diesem Quartal</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>20%</td><td class="new">5.45 CHF</td></tr>
+      <tr><td>50%</td><td class="new">13.65 CHF</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.9rem; color:var(--muted)">Dieses Quartal ist wegen der eigenen PV-Anlage dasjenige
+    mit dem tiefsten Netzbezug im Jahr. In den Wintermonaten ist der Bezug bei allen Haushalten höher,
+    entsprechend fällt dort auch die absolute Ersparnis in Franken höher aus. Je mehr Nachbarn mit
+    PV-Anlage mitmachen, desto grösser der gemeinsame Effekt für alle.</p>
+</section>
+
+<section id="funktion">
+  <h2>So funktioniert der Stromfluss</h2>
+  <p>Am Kabel ändert sich nichts, nur an der Abrechnung. Produziert die Solaranlage einer Nachbarin
+    tagsüber mehr, als im eigenen Haus gebraucht wird, fliesst der Überschuss übers bestehende Netz
+    weiter zu anderen Häusern in der Gemeinschaft, statt weit weg im überregionalen Netz zu verschwinden.</p>
+
+  <div class="flow">
+    <svg viewBox="0 0 340 110" width="100%" role="img" aria-label="Stromfluss von der Solaranlage über die Netzstation zum Nachbarhaus">
+      <path class="flow-line" d="M55 30 H155" />
+      <path class="flow-line" d="M185 30 H285" />
+      <g font-size="30" text-anchor="middle">
+        <text x="40" y="42">&#9728;&#65039;</text>
+        <text x="170" y="42">&#9889;</text>
+        <text x="300" y="42">&#127968;</text>
+      </g>
+      <g font-size="11" text-anchor="middle" fill="#5b6a61">
+        <text x="40" y="78">PV-Anlage</text>
+        <text x="170" y="78">Netzstation</text>
+        <text x="300" y="78">Nachbarhaus</text>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section id="vor-nachteile">
+  <h2>Vorteile und was zu beachten ist</h2>
+  <div class="pro-con">
+    <div class="pro">
+      <h3>Vorteile</h3>
+      <ul class="plain">
+        <li>Bis zu 40% weniger Netznutzungskosten auf dem intern bezogenen Strom</li>
+        <li>Keine baulichen Anpassungen oder neuen Installationen nötig</li>
+        <li>Bleibt Kundin bzw. Kunde der Technischen Betriebe Sulgen, keine neuen Verträge mit Dritten</li>
+        <li>Jederzeit wieder austrittsfähig, anders als beim ZEV</li>
+        <li>Lokal produzierter Solarstrom bleibt in der Nachbarschaft</li>
+      </ul>
+    </div>
+    <div class="con">
+      <h3>Zu beachten</h3>
+      <ul class="plain">
+        <li>Braucht einen intelligenten Stromzähler (Smart Meter) an jeder Liegenschaft</li>
+        <li>Definitive Rabattstufe bestätigen die Technischen Betriebe erst nach der Anmeldung</li>
+        <li>Abrechnung des intern gehandelten Stroms muss unter den Teilnehmenden privat geregelt werden</li>
+        <li>Wer bereits in einem ZEV oder vZEV ist, kann nur als ganze Gemeinschaft beitreten</li>
+        <li>Die effektive Ersparnis hängt vom eigenen Verbrauchsprofil ab</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <section id="wer-macht-mit">
   <h2>Wer kann mitmachen</h2>
-  <p>Alle Liegenschaften im Bereich unserer Verteilkabine, das sind rund <strong>50 Gebäude</strong> an
-    folgenden Strassen:</p>
+  <p>Alle Liegenschaften im Einzugsgebiet unserer Netzstation Ebnetstrasse 207, das sind rund
+    <strong>50 Gebäude</strong>, an folgenden Strassen:</p>
   <div class="streets">
     <span>Mattenstrasse</span>
     <span>Ebnetstrasse</span>
@@ -233,7 +337,7 @@
   </div>
   <p style="margin-top:1rem">Eine eigene Solaranlage braucht nicht jede Teilnehmerin und jeder Teilnehmer.
     Es reicht, wenn insgesamt genug PV-Leistung in der Gemeinschaft vorhanden ist (gesetzlich mindestens
-    5% der gesamten Anschlussleistung) &ndash; das ist bei uns bereits heute der Fall, da mehrere Haushalte
+    5% der gesamten Anschlussleistung). Das ist bei uns bereits heute der Fall, da mehrere Haushalte
     eine PV-Anlage betreiben. Ein intelligenter Stromzähler (Smart Meter) ist Voraussetzung; die
     Technischen Betriebe prüfen das bei der Anmeldung für jede Liegenschaft.</p>
 </section>
