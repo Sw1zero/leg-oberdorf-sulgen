@@ -214,7 +214,6 @@
     text-align: center;
     box-shadow: 0 6px 20px rgba(38, 49, 43, 0.06);
   }
-  .persona-1 { background: linear-gradient(165deg, #eef7f0, #ffffff 65%); border-color: #cfe8d6; }
   .persona-2 { background: linear-gradient(165deg, #eef2f7, #ffffff 65%); border-color: #d3dfec; }
   .persona-3 { background: linear-gradient(165deg, #fdf3e2, #ffffff 65%); border-color: #f0dfc0; }
   .persona-icon { font-size: 2.6rem; margin-bottom: 0.6rem; }
@@ -278,19 +277,19 @@
     cursor: pointer;
     color: var(--muted);
   }
-  .season-tabs:has(#s1-winter:checked) label[for="s1-winter"],
-  .season-tabs:has(#s1-fruehling:checked) label[for="s1-fruehling"],
-  .season-tabs:has(#s1-sommer:checked) label[for="s1-sommer"],
-  .season-tabs:has(#s1-herbst:checked) label[for="s1-herbst"] {
+  .season-tabs:has(#pv-winter:checked) label[for="pv-winter"],
+  .season-tabs:has(#pv-fruehling:checked) label[for="pv-fruehling"],
+  .season-tabs:has(#pv-sommer:checked) label[for="pv-sommer"],
+  .season-tabs:has(#pv-herbst:checked) label[for="pv-herbst"] {
     background: var(--green);
     color: #fff;
     border-color: var(--green);
   }
   .season-panel { display: none; }
-  .season-tabs:has(#s1-winter:checked) .season-panel[data-p="winter"],
-  .season-tabs:has(#s1-fruehling:checked) .season-panel[data-p="fruehling"],
-  .season-tabs:has(#s1-sommer:checked) .season-panel[data-p="sommer"],
-  .season-tabs:has(#s1-herbst:checked) .season-panel[data-p="herbst"] {
+  .season-tabs:has(#pv-winter:checked) .season-panel[data-p="winter"],
+  .season-tabs:has(#pv-fruehling:checked) .season-panel[data-p="fruehling"],
+  .season-tabs:has(#pv-sommer:checked) .season-panel[data-p="sommer"],
+  .season-tabs:has(#pv-herbst:checked) .season-panel[data-p="herbst"] {
     display: block;
   }
 </style>
@@ -347,64 +346,12 @@
 </section>
 
 <section id="rechenbeispiel">
-  <h2>Rechenbeispiel: drei Fälle</h2>
+  <h2>Rechenbeispiel</h2>
   <p>Alle profitieren, auch ohne eigene Solaranlage. Wer selber Strom produziert, verdient zusätzlich
     am Verkauf des eigenen Überschusses, das kommt oben drauf und geht nicht auf Kosten der anderen.</p>
   <p class="swipe-hint">&larr; Zum Durchblättern wischen &rarr;</p>
 
   <div class="personas">
-    <div class="persona-card persona-1">
-      <div class="persona-icon">&#9728;&#65039;</div>
-      <h3>Heute ohne LEG, mit PV-Anlage</h3>
-      <p class="persona-sub">Meine eigenen Messwerte, mit heutigen Tarifen gerechnet</p>
-
-      <div class="season-tabs">
-        <input type="radio" name="season1" id="s1-winter" checked>
-        <input type="radio" name="season1" id="s1-fruehling">
-        <input type="radio" name="season1" id="s1-sommer">
-        <input type="radio" name="season1" id="s1-herbst">
-        <div class="season-tablist">
-          <label for="s1-winter">Winter</label>
-          <label for="s1-fruehling">Frühling</label>
-          <label for="s1-sommer">Sommer</label>
-          <label for="s1-herbst">Herbst</label>
-        </div>
-
-        <div class="season-panel" data-p="winter">
-          <div class="persona-big">+65 CHF<span>weniger Kosten, dieses Quartal</span></div>
-          <div class="persona-compare">
-            <span>Bisher 407 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG 342 CHF</span>
-          </div>
-          <p class="persona-note">Im Winter produziert meine Anlage kaum Strom, ich beziehe die meiste
-            Zeit vom Netz. Auch dann lohnt sich die LEG, weil ein Teil günstiger eingekauft wird.</p>
-        </div>
-        <div class="season-panel" data-p="fruehling">
-          <div class="persona-big">+98 CHF<span>bleiben mir zusätzlich, dieses Quartal</span></div>
-          <div class="persona-compare">
-            <span>Bisher &minus;331 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG &minus;429 CHF</span>
-          </div>
-          <p class="persona-note">Im Frühling produziert meine Anlage schon kräftig. Der Überschuss
-            ergibt eine Gutschrift, mit der LEG fällt sie höher aus.</p>
-        </div>
-        <div class="season-panel" data-p="sommer">
-          <div class="persona-big">+76 CHF<span>bleiben mir zusätzlich, dieses Quartal</span></div>
-          <div class="persona-compare">
-            <span>Bisher &minus;226 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG &minus;302 CHF</span>
-          </div>
-          <p class="persona-note">Im Sommer liefert die Anlage weiterhin viel Überschuss. Ein Teil davon
-            geht mit der LEG direkt an Nachbarn statt ans allgemeine Netz.</p>
-        </div>
-        <div class="season-panel" data-p="herbst">
-          <div class="persona-big">+60 CHF<span>weniger Kosten, dieses Quartal</span></div>
-          <div class="persona-compare">
-            <span>Bisher 462 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG 402 CHF</span>
-          </div>
-          <p class="persona-note">Im Herbst sinkt die Produktion wieder, ich beziehe mehr, als ich
-            selber herstelle. Die LEG hilft trotzdem, einen Teil günstiger einzukaufen.</p>
-        </div>
-      </div>
-    </div>
-
     <div class="persona-card persona-2">
       <div class="persona-icon">&#128268;</div>
       <h3>Ohne eigene Solaranlage</h3>
@@ -420,23 +367,63 @@
     <div class="persona-card persona-3">
       <div class="persona-icon">&#127968;</div>
       <h3>Mit eigener Solaranlage</h3>
-      <p class="persona-sub">Beispiel, eigene PV-Anlage</p>
-      <div class="persona-big">+119 CHF<span>weniger Stromkosten, pro Jahr</span></div>
-      <div class="persona-compare">
-        <span>Bisher 145 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG 26 CHF</span>
+      <p class="persona-sub">Beispiel, 8 kWp-Anlage, je Jahreszeit</p>
+
+      <div class="season-tabs">
+        <input type="radio" name="season-pv" id="pv-winter" checked>
+        <input type="radio" name="season-pv" id="pv-fruehling">
+        <input type="radio" name="season-pv" id="pv-sommer">
+        <input type="radio" name="season-pv" id="pv-herbst">
+        <div class="season-tablist">
+          <label for="pv-winter">Winter</label>
+          <label for="pv-fruehling">Frühling</label>
+          <label for="pv-sommer">Sommer</label>
+          <label for="pv-herbst">Herbst</label>
+        </div>
+
+        <div class="season-panel" data-p="winter">
+          <div class="persona-big">+27 CHF<span>weniger Kosten, dieses Quartal</span></div>
+          <div class="persona-compare">
+            <span>Bisher 186 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG 159 CHF</span>
+          </div>
+          <p class="persona-note">Im Winter liefert die Anlage wenig. Trotzdem lohnt sich die LEG durch
+            den günstigeren Einkauf.</p>
+        </div>
+        <div class="season-panel" data-p="fruehling">
+          <div class="persona-big">+31 CHF<span>bleiben zusätzlich, dieses Quartal</span></div>
+          <div class="persona-compare">
+            <span>Bisher &minus;29 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG &minus;60 CHF</span>
+          </div>
+          <p class="persona-note">Im Frühling deckt die Anlage schon vieles selber ab. Der Überschuss
+            bringt zusätzlich Geld.</p>
+        </div>
+        <div class="season-panel" data-p="sommer">
+          <div class="persona-big">+32 CHF<span>bleiben zusätzlich, dieses Quartal</span></div>
+          <div class="persona-compare">
+            <span>Bisher &minus;104 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG &minus;136 CHF</span>
+          </div>
+          <p class="persona-note">Im Sommer produziert die Anlage am meisten. Der grösste Teil davon
+            geht mit der LEG direkt an Nachbarn.</p>
+        </div>
+        <div class="season-panel" data-p="herbst">
+          <div class="persona-big">+29 CHF<span>weniger Kosten, dieses Quartal</span></div>
+          <div class="persona-compare">
+            <span>Bisher 93 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG 64 CHF</span>
+          </div>
+          <p class="persona-note">Im Herbst sinkt die Produktion wieder. Ein Teil des Stroms kommt neu
+            günstiger von der LEG.</p>
+        </div>
       </div>
-      <p class="persona-note">Du bekommst mehr Geld für deinen Solarstrom, wenn ihn ein Nachbar
-        direkt bezieht, statt ihn wie heute zu einem tieferen Preis ans allgemeine Netz abzugeben.</p>
     </div>
   </div>
 
-  <p class="disclaimer">Winter, Frühling, Sommer und Herbst basieren auf meinen eigenen gemessenen
-    Verbrauchs- und Produktionswerten aus vier Quartalsrechnungen, aber gerechnet mit den heutigen
-    Tarifen der Technischen Betriebe Sulgen, nicht mit den Tarifen, die damals effektiv galten. Beträge
-    exkl. MWST, ohne Systemdienstleistungen, Netzzuschlag, Gemeindeabgaben und Messtarif, die bleiben
-    unabhängig von der LEG gleich. Die anderen zwei Fälle rechnen mit Durchschnittswerten (Quellen:
-    EnergieSchweiz/BFE, Swissolar). Annahmen: 11 Rp./kWh für Strom, der innerhalb der LEG gehandelt wird,
-    30% des Stroms laufen effektiv über die LEG. Keine garantierten Werte.</p>
+  <p class="disclaimer">Beträge exkl. MWST, ohne Systemdienstleistungen, Netzzuschlag, Gemeindeabgaben
+    und Messtarif, die bleiben unabhängig von der LEG gleich. Beide Fälle rechnen mit Durchschnittswerten
+    für ein Einfamilienhaus in der Region (Quellen: EnergieSchweiz/BFE für den Verbrauch, Swissolar für
+    Anlagengrösse und Eigenverbrauch). Die saisonale Verteilung der Solarproduktion (Winter 9%, Frühling
+    32%, Sommer 40%, Herbst 19% des Jahresertrags) stammt aus der BFE-Studie Winterstrom Schweiz.
+    Annahmen: 11 Rp./kWh für Strom, der innerhalb der LEG gehandelt wird, 30% des Stroms laufen effektiv
+    über die LEG. Keine garantierten Werte.</p>
 </section>
 
 <section id="funktion">
