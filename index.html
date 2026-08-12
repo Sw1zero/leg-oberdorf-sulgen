@@ -187,14 +187,27 @@
   .pro h3, .con h3 { margin-top: 0; }
   .pro ul.plain, .con ul.plain { margin: 0; }
   .pro ul.plain li, .con ul.plain li { margin-bottom: 0.6rem; font-size: 0.95rem; }
+  .swipe-hint {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+    margin: 0.5rem 0 0;
+  }
   .personas {
     display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     margin: 1.25rem 0;
+    padding: 0.25rem 0.25rem 0.75rem;
   }
+  .personas::-webkit-scrollbar { display: none; }
   .persona-card {
-    flex: 1 1 15rem;
+    flex: 0 0 82%;
+    max-width: 20rem;
+    scroll-snap-align: center;
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -290,68 +303,57 @@
 </section>
 
 <section id="rechenbeispiel">
-  <h2>Rechenbeispiel: drei Fälle aus der Nachbarschaft</h2>
-  <p>Wie viel die LEG konkret bringt, hängt vom eigenen Verbrauch ab, davon, ob man selber eine
-    PV-Anlage hat, und davon, wie viel Strom effektiv innerhalb der Gemeinschaft gehandelt wird. Alle
-    drei Beispiele rechnen mit einem angenommenen internen Verrechnungspreis von
-    <strong>11 Rp./kWh</strong> (Mittelwert zwischen der heutigen Rückliefervergütung von 7 Rp./kWh und
-    dem Energietarif von 15 Rp./kWh, unter den Teilnehmenden frei verhandelbar) und einem angenommenen
-    Anteil von <strong>30%</strong> des Stroms, der effektiv innerhalb der LEG gehandelt wird. Wer
-    Solarstrom verkauft, verdient dabei 4 Rp./kWh mehr als heute bei der Rückspeisung ans Netz. Wer
-    Strom bezieht, bezahlt dafür 4 Rp./kWh weniger als heute, zusätzlich zum Netznutzungsrabatt.</p>
+  <h2>Rechenbeispiel: drei Fälle</h2>
+  <p>Alle profitieren, auch ohne eigene Solaranlage. Wer selber Strom produziert, verdient zusätzlich
+    am Verkauf des eigenen Überschusses, das kommt oben drauf und geht nicht auf Kosten der anderen.</p>
+  <p class="swipe-hint">&larr; Zum Durchblättern wischen &rarr;</p>
 
   <div class="personas">
     <div class="persona-card">
-      <h3>Ich heute<span class="persona-sub">Reale Zahlen, 2. Quartal 2026</span></h3>
+      <h3>Ich heute<span class="persona-sub">Meine echte Rechnung, 2. Quartal 2026</span></h3>
       <div class="bars">
         <div class="bar-row"><span class="bar-label">Ohne LEG</span><div class="bar-track"><div class="bar-fill bar-old" style="width:74%"></div></div><span class="bar-value">&minus;277.35 CHF</span></div>
         <div class="bar-row"><span class="bar-label">Mit LEG</span><div class="bar-track"><div class="bar-fill bar-new" style="width:100%"></div></div><span class="bar-value">&minus;375.89 CHF</span></div>
       </div>
       <ul class="plain breakdown">
-        <li>Minderaufwand Einkauf <strong>+7.46 CHF</strong></li>
-        <li>Minderaufwand Netznutzung <strong>+7.57 CHF</strong></li>
-        <li>Mehrertrag Verkauf <strong>+83.51 CHF</strong></li>
+        <li>Günstiger eingekauft <strong>+15.03 CHF</strong></li>
+        <li>Mehr für den eigenen Solarstrom <strong>+83.51 CHF</strong></li>
       </ul>
-      <p class="persona-total">Rund <strong>99 CHF</strong> mehr pro Quartal, vor allem weil meine
-        PV-Anlage viel mehr produziert, als ich selber verbrauche.</p>
+      <p class="persona-total">Rund <strong>99 CHF</strong> mehr pro Quartal.</p>
     </div>
 
     <div class="persona-card">
-      <h3>Neuer Teilnehmer ohne PV<span class="persona-sub">Beispiel, 4'500 kWh Verbrauch/Jahr</span></h3>
+      <h3>Neuer Teilnehmer ohne PV<span class="persona-sub">Beispiel, durchschnittlicher Verbrauch</span></h3>
       <div class="bars">
         <div class="bar-row"><span class="bar-label">Ohne LEG</span><div class="bar-track"><div class="bar-fill bar-old" style="width:100%"></div></div><span class="bar-value">1'083 CHF</span></div>
         <div class="bar-row"><span class="bar-label">Mit LEG</span><div class="bar-track"><div class="bar-fill bar-new" style="width:90%"></div></div><span class="bar-value">980 CHF</span></div>
       </div>
       <ul class="plain breakdown">
-        <li>Minderaufwand Einkauf <strong>+54 CHF</strong></li>
-        <li>Minderaufwand Netznutzung <strong>+49 CHF</strong></li>
+        <li>Günstiger eingekauft <strong>+103 CHF</strong></li>
       </ul>
       <p class="persona-total">Rund <strong>103 CHF</strong> weniger pro Jahr, ganz ohne eigene
         Solaranlage.</p>
     </div>
 
     <div class="persona-card">
-      <h3>Neuer Teilnehmer mit PV<span class="persona-sub">Beispiel, 8 kWp-Anlage</span></h3>
+      <h3>Neuer Teilnehmer mit PV<span class="persona-sub">Beispiel, eigene Solaranlage</span></h3>
       <div class="bars">
         <div class="bar-row"><span class="bar-label">Ohne LEG</span><div class="bar-track"><div class="bar-fill bar-old" style="width:100%"></div></div><span class="bar-value">145 CHF</span></div>
         <div class="bar-row"><span class="bar-label">Mit LEG</span><div class="bar-track"><div class="bar-fill bar-new" style="width:18%"></div></div><span class="bar-value">26 CHF</span></div>
       </div>
       <ul class="plain breakdown">
-        <li>Minderaufwand Einkauf <strong>+25 CHF</strong></li>
-        <li>Minderaufwand Netznutzung <strong>+27 CHF</strong></li>
-        <li>Mehrertrag Verkauf <strong>+67 CHF</strong></li>
+        <li>Günstiger eingekauft <strong>+52 CHF</strong></li>
+        <li>Mehr für den eigenen Solarstrom <strong>+67 CHF</strong></li>
       </ul>
-      <p class="persona-total">Von <strong>145 CHF</strong> auf noch <strong>26 CHF</strong> Netto-Stromkosten
-        im Jahr.</p>
+      <p class="persona-total">Von <strong>145 CHF</strong> auf noch <strong>26 CHF</strong> im Jahr.</p>
     </div>
   </div>
 
-  <p class="disclaimer">Alle Beträge exkl. MWST und ohne Systemdienstleistungen, Netzzuschlag,
-    Gemeindeabgaben und Messtarif, diese bleiben unabhängig von der LEG gleich hoch. "Ich heute" basiert
-    auf meiner echten Stromrechnung. Die zwei anderen Fälle rechnen mit typischen Durchschnittswerten für
-    ein Einfamilienhaus in der Region (Quellen: EnergieSchweiz/BFE für den Verbrauch, Swissolar-Faustregeln
-    für Anlagengrösse und Eigenverbrauch). Interner Verrechnungspreis und LEG-interner Anteil sind
-    Beispielannahmen, keine garantierten Werte.</p>
+  <p class="disclaimer">Beträge exkl. MWST, ohne Systemdienstleistungen, Netzzuschlag, Gemeindeabgaben
+    und Messtarif, die bleiben gleich. Annahmen: 11 Rp./kWh für Strom, der innerhalb der LEG gehandelt
+    wird, 30% des Stroms laufen effektiv über die LEG. "Ich heute" ist meine echte Rechnung, die anderen
+    zwei Fälle rechnen mit Durchschnittswerten (Quellen: EnergieSchweiz/BFE, Swissolar). Keine
+    garantierten Werte.</p>
 </section>
 
 <section id="funktion">
