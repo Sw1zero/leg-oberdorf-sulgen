@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="de-CH">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEG Oberdorf Sulgen</title>
+<style>
+  :root {
+    --green: #2f7d4f;
+    --green-dark: #205d3a;
+    --amber: #e0a01c;
+    --bg: #fafaf7;
+    --card: #ffffff;
+    --text: #26312b;
+    --muted: #5b6a61;
+    --border: #e2e6df;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  header.hero {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+    color: white;
+    padding: 3.5rem 1.25rem 3rem;
+    text-align: center;
+  }
+  header.hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.35);
+    padding: 0.3rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+  }
+  header.hero h1 {
+    font-size: 2.1rem;
+    margin: 0 0 0.8rem;
+    line-height: 1.25;
+  }
+  header.hero p.lead {
+    font-size: 1.15rem;
+    max-width: 40rem;
+    margin: 0 auto;
+    opacity: 0.95;
+  }
+  .big-number {
+    font-weight: 800;
+    color: var(--amber);
+  }
+  main {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+  }
+  section {
+    padding: 2.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  section:last-of-type { border-bottom: none; }
+  h2 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+    color: var(--green-dark);
+  }
+  h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+  p { margin: 0 0 1rem; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0;
+  }
+  .streets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0 0.5rem;
+  }
+  .streets span {
+    background: #eef5ef;
+    border: 1px solid #d3e6d8;
+    color: var(--green-dark);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  .stat-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+  }
+  .stat {
+    flex: 1 1 10rem;
+  }
+  .stat .num {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--green);
+  }
+  .stat .label { color: var(--muted); font-size: 0.9rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 0.55rem 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+  th { color: var(--muted); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.02em; }
+  td.old { color: var(--muted); }
+  td.new { color: var(--green-dark); font-weight: 700; }
+  .not-discounted {
+    background: #faf3e8;
+    border: 1px solid #f0dfc0;
+    border-radius: 12px;
+    padding: 1.1rem 1.4rem;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+  ol.timeline, ul.plain {
+    padding-left: 1.2rem;
+  }
+  ol.timeline li, ul.plain li {
+    margin-bottom: 0.9rem;
+  }
+  footer {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 3rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--green-dark); }
+  .disclaimer {
+    font-size: 0.85rem;
+    color: var(--muted);
+    background: #f1f3ef;
+    border-radius: 10px;
+    padding: 0.9rem 1.1rem;
+    margin-top: 1.25rem;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="badge">Neu ab 2026 &middot; Stromgesetz (Mantelerlass)</span>
+  <h1>Lokale Elektrizitätsgemeinschaft<br>Oberdorf Sulgen</h1>
+  <p class="lead">Wer im Bereich unserer Verteilkabine wohnt, kann sich zusammenschliessen und
+    <span class="big-number">40%</span> Rabatt auf die Netznutzung sichern &ndash; ohne bauliche Änderungen,
+    ohne neue Verträge mit Dritten.</p>
+</header>
+
+<main>
+
+<section id="was-ist-leg">
+  <h2>Was ist eine LEG?</h2>
+  <p>Seit 1. Januar 2026 gilt das revidierte Stromversorgungsgesetz. Es erlaubt Nachbarschaften,
+    die am gleichen Verteilnetz hängen, sich zu einer <strong>Lokalen Elektrizitätsgemeinschaft (LEG)</strong>
+    zusammenzuschliessen. Wer lokal produzierten Solarstrom bezieht, statt ihn von weiter her übers Netz
+    zu holen, bezahlt dafür weniger Netznutzungsgebühren.</p>
+  <p>Der Strom fliesst technisch genau gleich wie heute, übers bestehende Verteilnetz der Technischen
+    Betriebe Sulgen. Es braucht keine neue Leitung, keine neue Installation und keinen Wechsel des
+    Stromlieferanten. Jede und jeder bleibt normale Kundin bzw. normaler Kunde der Technischen Betriebe,
+    nur die Abrechnung ändert sich.</p>
+</section>
+
+<section id="vorteil">
+  <h2>Der Vorteil: bis zu 40% weniger Netznutzung</h2>
+  <p>Die Gemeinde Sulgen gewährt je nach Netzebene 20% oder 40% Rabatt auf die Netznutzung.
+    Alle Liegenschaften an unserer Verteilkabine liegen auf der Netzebene, die den
+    <strong>vollen 40%-Rabatt</strong> erhält.</p>
+
+  <table>
+    <thead>
+      <tr><th>Kostenbestandteil</th><th>Heute</th><th>Mit LEG (&minus;40%)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Netznutzung Hochtarif</td><td class="old">10.30 Rp./kWh</td><td class="new">6.18 Rp./kWh</td></tr>
+      <tr><td>Netznutzung Niedertarif</td><td class="old">7.00 Rp./kWh</td><td class="new">4.20 Rp./kWh</td></tr>
+      <tr><td>Grundpreis Netz</td><td class="old">5.00 CHF/Monat</td><td class="new">3.00 CHF/Monat</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.9rem; color:var(--muted)">Werte gemäss aktuellem Tarifblatt der Technischen Betriebe Sulgen
+    (Stand Q2/2026). Der Rabatt gilt nur auf dem Stromanteil, der zeitgleich mit der lokalen
+    Solarproduktion bezogen wird &ndash; also z.B. tagsüber, wenn Nachbars Solaranlage einspeist.</p>
+
+  <div class="not-discounted">
+    <strong>Nicht rabattiert</strong> sind die Energielieferung selbst (15 Rp./kWh), Systemdienstleistungen,
+    Netzzuschlag des Bundes, Abgaben an die Gemeinde und der Messtarif. Der Rabatt betrifft ausschliesslich
+    die Netznutzung.
+  </div>
+</section>
+
+<section id="rechenbeispiel">
+  <h2>Rechenbeispiel aus der Nachbarschaft</h2>
+  <p>Meine eigene Stromrechnung fürs 2. Quartal 2026 (Einfamilienhaus, 622 kWh Bezug):</p>
+  <div class="card">
+    <div class="stat-row">
+      <div class="stat"><div class="num">68.19</div><div class="label">CHF Netznutzung im Quartal (heute)</div></div>
+      <div class="stat"><div class="num">&minus;40%</div><div class="label">auf den LEG-internen Anteil davon</div></div>
+    </div>
+  </div>
+  <p>Wie viel das konkret spart, hängt davon ab, wie viel Strom effektiv gleichzeitig mit einer
+    Solaranlage in der Nachbarschaft bezogen wird. Je mehr Haushalte mit PV-Anlage mitmachen, desto
+    grösser der gemeinsame Effekt.</p>
+</section>
+
+<section id="wer-macht-mit">
+  <h2>Wer kann mitmachen</h2>
+  <p>Alle Liegenschaften im Bereich unserer Verteilkabine, das sind rund <strong>50 Gebäude</strong> an
+    folgenden Strassen:</p>
+  <div class="streets">
+    <span>Mattenstrasse</span>
+    <span>Ebnetstrasse</span>
+    <span>Wintermoosstrasse</span>
+    <span>Sonnhaldenstrasse</span>
+    <span>Weinmoosstrasse</span>
+    <span>Grabenhaldenstrasse (Teile)</span>
+    <span>Rebbergstrasse (Teile)</span>
+  </div>
+  <p style="margin-top:1rem">Eine eigene Solaranlage braucht nicht jede Teilnehmerin und jeder Teilnehmer.
+    Es reicht, wenn insgesamt genug PV-Leistung in der Gemeinschaft vorhanden ist (gesetzlich mindestens
+    5% der gesamten Anschlussleistung) &ndash; das ist bei uns bereits heute der Fall, da mehrere Haushalte
+    eine PV-Anlage betreiben. Ein intelligenter Stromzähler (Smart Meter) ist Voraussetzung; die
+    Technischen Betriebe prüfen das bei der Anmeldung für jede Liegenschaft.</p>
+</section>
+
+<section id="ablauf">
+  <h2>Wie geht es weiter</h2>
+  <ol class="timeline">
+    <li><strong>Interesse sammeln.</strong> Diese Seite ist der erste Schritt, um zu sehen, wie viele
+      Nachbarn mitmachen wollen.</li>
+    <li><strong>Anmeldung bei den Technischen Betrieben Sulgen.</strong> Die Gründung einer LEG ist
+      Privatsache, die Teilnehmerliste geht anschliessend gemeinsam ans Elektrizitätswerk.</li>
+    <li><strong>Vertrag.</strong> Das Werk stellt einen Vertrag zwischen der LEG und den Technischen
+      Betrieben aus, mit einer Person als Vertretung nach aussen.</li>
+    <li><strong>Aktivierung.</strong> Die Anmeldung muss drei Monate vor einem Quartalsbeginn erfolgen,
+      die Aktivierung erfolgt danach innerhalb von drei Monaten.</li>
+    <li><strong>Jederzeit austreten.</strong> Anders als bei einem ZEV kann man eine LEG wieder verlassen,
+      mit einem einfachen Austrittsformular.</li>
+  </ol>
+  <div class="disclaimer">
+    Wer bereits Teil eines ZEV oder vZEV ist (z.B. gemeinsame Anlage in einem Mehrfamilienhaus), kann nur
+    als ganzer Zusammenschluss der LEG beitreten, nicht als einzelne Partei.
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>Wichtig:</strong> Diese Seite ist eine private Information von mir an meine Nachbarschaft,
+    keine offizielle Publikation der Gemeinde Sulgen. Die definitive Rabattstufe und die Aufnahme jeder
+    einzelnen Liegenschaft bestätigen die Technischen Betriebe Sulgen erst nach der Anmeldung.</p>
+  <p>Quellen: Gemeinde Sulgen, Merkblatt &laquo;Lokale Energiegemeinschaften (LEG) gründen&raquo;
+    (Stand 11.12.2025) &middot; Stromrechnung Technische Betriebe Sulgen, Q2/2026 &middot;
+    <a href="https://www.lokalerstrom.ch" target="_blank" rel="noopener">lokalerstrom.ch</a></p>
+</footer>
+
+</body>
+</html>
