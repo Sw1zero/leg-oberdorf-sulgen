@@ -272,6 +272,20 @@
     color: var(--muted);
     margin: 0;
   }
+  .calc-detail {
+    text-align: left;
+    margin-top: 1.1rem;
+    font-size: 0.88rem;
+  }
+  .calc-detail summary {
+    cursor: pointer;
+    color: var(--green-dark);
+    font-weight: 600;
+    text-align: center;
+  }
+  .calc-detail p { color: var(--muted); margin: 0.6rem 0; }
+  .calc-detail ul.plain { margin: 0.5rem 0; padding-left: 1.1rem; }
+  .calc-detail ul.plain li { color: var(--muted); margin-bottom: 0.4rem; }
 </style>
 </head>
 <body>
@@ -342,6 +356,16 @@
       </div>
       <p class="persona-note">Auch ohne eigene Solaranlage profitierst du. Ein Teil deines Stroms
         kommt neu günstiger von der Solaranlage eines Nachbarn statt vom allgemeinen Netz.</p>
+      <details class="calc-detail">
+        <summary>Wie kommt die Zahl zustande?</summary>
+        <p>Von den 4'500 kWh Strom im Jahr kommen mit der LEG 1'350 kWh (30%) direkt von einer
+          Nachbarin statt vom Werk. Dafür wirkt ein doppelter Hebel:</p>
+        <ul class="plain">
+          <li>Günstigerer Strompreis: 11 statt 15 Rp./kWh &rarr; 54 CHF weniger</li>
+          <li>40% Rabatt auf die Netzgebühr für diesen Teil &rarr; 49 CHF weniger</li>
+        </ul>
+        <p>Zusammen: rund 103 CHF weniger pro Jahr, bei gleichem Verbrauch wie heute.</p>
+      </details>
     </div>
 
     <div class="persona-card persona-3">
