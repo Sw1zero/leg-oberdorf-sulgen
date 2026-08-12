@@ -173,35 +173,53 @@
   }
   .pro, .con {
     flex: 1 1 14rem;
-    border-radius: 12px;
-    padding: 1.1rem 1.3rem;
+    border-radius: 18px;
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 6px 20px rgba(38, 49, 43, 0.06);
   }
-  .pro { background: #eef7f0; border: 1px solid #cfe8d6; }
-  .con { background: #faf3e8; border: 1px solid #f0dfc0; }
+  .pro { background: linear-gradient(165deg, #eef7f0, #ffffff 65%); border: 1px solid #cfe8d6; }
+  .con { background: linear-gradient(165deg, #fdf3e2, #ffffff 65%); border: 1px solid #f0dfc0; }
+  .pro-con-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.9rem;
+  }
+  .pro .pro-con-icon { background: var(--green); }
+  .con .pro-con-icon { background: var(--amber); }
   .pro h3, .con h3 { margin-top: 0; }
-  .pro ul.plain, .con ul.plain { margin: 0; }
-  .pro ul.plain li, .con ul.plain li { margin-bottom: 0.6rem; font-size: 0.95rem; }
-  .swipe-hint {
-    font-size: 0.8rem;
-    color: var(--muted);
-    text-align: center;
-    margin: 0.5rem 0 0;
+  .pro ul.plain, .con ul.plain { margin: 0; padding-left: 0; list-style: none; }
+  .pro ul.plain li, .con ul.plain li {
+    margin-bottom: 0.7rem;
+    font-size: 0.95rem;
+    padding-left: 1.4rem;
+    position: relative;
   }
+  .pro ul.plain li::before, .con ul.plain li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+  }
+  .pro ul.plain li::before { background: var(--green); }
+  .con ul.plain li::before { background: var(--amber); }
   .personas {
     display: flex;
     gap: 1.1rem;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    flex-wrap: wrap;
     margin: 1.4rem 0;
-    padding: 0.25rem 0.25rem 1rem;
   }
-  .personas::-webkit-scrollbar { display: none; }
   .persona-card {
-    flex: 0 0 88%;
-    max-width: 24rem;
-    scroll-snap-align: center;
+    flex: 1 1 15rem;
     border: 1px solid var(--border);
     border-radius: 18px;
     padding: 2rem 1.75rem;
@@ -270,17 +288,13 @@
 
 <section id="was-ist-leg">
   <h2>Was ist eine LEG?</h2>
-  <p>Seit 1. Januar 2026 gilt das revidierte Stromversorgungsgesetz. Es erlaubt Nachbarschaften,
-    die am gleichen Verteilnetz hängen, sich zu einer <strong>Lokalen Elektrizitätsgemeinschaft (LEG)</strong>
-    zusammenzuschliessen. Wer lokal produzierten Solarstrom bezieht, statt ihn von weiter her übers Netz
-    zu holen, bezahlt dafür weniger Netznutzungsgebühren.</p>
-  <p>Der Strom fliesst technisch genau gleich wie heute, übers bestehende Verteilnetz der Technischen
-    Betriebe Sulgen. Es braucht keine neue Leitung, keine neue Installation und keinen Wechsel des
-    Stromlieferanten. Jede und jeder bleibt normale Kundin bzw. normaler Kunde der Technischen Betriebe,
+  <p>Seit 2026 dürfen sich Nachbarschaften am gleichen Verteilnetz zu einer
+    <strong>Lokalen Elektrizitätsgemeinschaft (LEG)</strong> zusammenschliessen. Wer lokal produzierten
+    Solarstrom bezieht statt Strom von weiter her, zahlt weniger <strong>Netznutzung</strong>: die
+    Gebühr fürs Leitungsnetz, unabhängig vom Preis für den Strom selbst.</p>
+  <p>Technisch ändert sich nichts, der Strom fliesst wie bisher übers bestehende Netz der Technischen
+    Betriebe Sulgen. Keine neue Leitung, keine neue Installation, kein Wechsel des Stromlieferanten,
     nur die Abrechnung ändert sich.</p>
-  <p>Ein Teil deiner Stromrechnung ist die <strong>Netznutzung</strong>: die Gebühr fürs Leitungsnetz,
-    unabhängig vom eigentlichen Preis für den verbrauchten Strom. Genau auf diesen Netzanteil gibt es
-    mit der LEG einen Rabatt.</p>
 </section>
 
 <section id="vorteil">
@@ -316,7 +330,6 @@
   <h2>Rechenbeispiel</h2>
   <p>Alle profitieren, auch ohne eigene Solaranlage. Wer selber Strom produziert, verdient zusätzlich
     am Verkauf des eigenen Überschusses, das kommt oben drauf und geht nicht auf Kosten der anderen.</p>
-  <p class="swipe-hint">&larr; Zum Durchblättern wischen &rarr;</p>
 
   <div class="personas">
     <div class="persona-card persona-2">
@@ -347,14 +360,18 @@
   <p class="disclaimer">Beträge exkl. MWST, ohne Systemdienstleistungen, Netzzuschlag, Gemeindeabgaben
     und Messtarif, die bleiben unabhängig von der LEG gleich. Beide Fälle rechnen mit Durchschnittswerten
     für ein Einfamilienhaus in der Region (Quellen: EnergieSchweiz/BFE für den Verbrauch, Swissolar für
-    Anlagengrösse und Eigenverbrauch). Annahmen: 11 Rp./kWh für Strom, der innerhalb der LEG gehandelt
-    wird, 30% des Stroms laufen effektiv über die LEG. Keine garantierten Werte.</p>
+    Anlagengrösse und Eigenverbrauch). Für den internen Verrechnungspreis (11 Rp./kWh, Mittelwert
+    zwischen heutiger Rückliefervergütung und Energietarif) und den LEG-internen Anteil (30%, angelehnt
+    an typische Eigenverbrauchsquoten ohne Speicher) gibt es noch keine gemessenen Erfahrungswerte, LEGs
+    sind erst seit 2026 möglich. Das sind plausible Annahmen für dieses Beispiel, keine garantierten
+    Werte.</p>
 </section>
 
 <section id="vor-nachteile">
   <h2>Vorteile und was zu beachten ist</h2>
   <div class="pro-con">
     <div class="pro">
+      <div class="pro-con-icon">&#10003;</div>
       <h3>Vorteile</h3>
       <ul class="plain">
         <li>Bis zu 40% weniger Netznutzungskosten auf dem intern bezogenen Strom</li>
@@ -365,6 +382,7 @@
       </ul>
     </div>
     <div class="con">
+      <div class="pro-con-icon">!</div>
       <h3>Zu beachten</h3>
       <ul class="plain">
         <li>Braucht einen intelligenten Stromzähler (Smart Meter) an jeder Liegenschaft</li>
