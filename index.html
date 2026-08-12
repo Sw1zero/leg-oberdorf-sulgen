@@ -165,26 +165,6 @@
     padding: 0.9rem 1.1rem;
     margin-top: 1.25rem;
   }
-  .flow {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1rem 0.5rem;
-    margin-top: 1.25rem;
-  }
-  .flow-line {
-    stroke: var(--amber);
-    stroke-width: 3;
-    fill: none;
-    stroke-dasharray: 6 8;
-    animation: flow 0.9s linear infinite;
-  }
-  @keyframes flow {
-    to { stroke-dashoffset: -28; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .flow-line { animation: none; }
-  }
   .pro-con {
     display: flex;
     gap: 1.25rem;
@@ -274,38 +254,6 @@
     color: var(--muted);
     margin: 0;
   }
-  .season-tabs input { display: none; }
-  .season-tablist {
-    display: flex;
-    justify-content: center;
-    gap: 0.4rem;
-    margin-bottom: 1.1rem;
-    flex-wrap: wrap;
-  }
-  .season-tablist label {
-    font-size: 0.8rem;
-    padding: 0.35rem 0.8rem;
-    border-radius: 999px;
-    background: rgba(255,255,255,0.7);
-    border: 1px solid var(--border);
-    cursor: pointer;
-    color: var(--muted);
-  }
-  .season-tabs:has(#pv-winter:checked) label[for="pv-winter"],
-  .season-tabs:has(#pv-fruehling:checked) label[for="pv-fruehling"],
-  .season-tabs:has(#pv-sommer:checked) label[for="pv-sommer"],
-  .season-tabs:has(#pv-herbst:checked) label[for="pv-herbst"] {
-    background: var(--green);
-    color: #fff;
-    border-color: var(--green);
-  }
-  .season-panel { display: none; }
-  .season-tabs:has(#pv-winter:checked) .season-panel[data-p="winter"],
-  .season-tabs:has(#pv-fruehling:checked) .season-panel[data-p="fruehling"],
-  .season-tabs:has(#pv-sommer:checked) .season-panel[data-p="sommer"],
-  .season-tabs:has(#pv-herbst:checked) .season-panel[data-p="herbst"] {
-    display: block;
-  }
 </style>
 </head>
 <body>
@@ -330,6 +278,9 @@
     Betriebe Sulgen. Es braucht keine neue Leitung, keine neue Installation und keinen Wechsel des
     Stromlieferanten. Jede und jeder bleibt normale Kundin bzw. normaler Kunde der Technischen Betriebe,
     nur die Abrechnung ändert sich.</p>
+  <p>Ein Teil deiner Stromrechnung ist die <strong>Netznutzung</strong>: die Gebühr fürs Leitungsnetz,
+    unabhängig vom eigentlichen Preis für den verbrauchten Strom. Genau auf diesen Netzanteil gibt es
+    mit der LEG einen Rabatt.</p>
 </section>
 
 <section id="vorteil">
@@ -350,7 +301,9 @@
   </table>
   <p style="font-size:0.9rem; color:var(--muted)">Werte gemäss aktuellem Tarifblatt der Technischen Betriebe Sulgen
     (Stand Q2/2026). Der Rabatt gilt nur auf dem Stromanteil, der zeitgleich mit der lokalen
-    Solarproduktion bezogen wird, also zum Beispiel tagsüber, wenn Nachbars Solaranlage einspeist.</p>
+    Solarproduktion bezogen wird, also zum Beispiel tagsüber, wenn Nachbars Solaranlage einspeist.
+    Gemessen wird das im 15-Minuten-Takt über die intelligenten Stromzähler; reicht der lokale Strom
+    nicht für alle, wird er anteilsmässig nach Verbrauch aufgeteilt.</p>
 
   <div class="not-discounted">
     <strong>Nicht rabattiert</strong> sind die Energielieferung selbst (15 Rp./kWh), Systemdienstleistungen,
@@ -381,90 +334,21 @@
     <div class="persona-card persona-3">
       <div class="persona-icon">&#127968;</div>
       <h3>Mit eigener Solaranlage</h3>
-      <p class="persona-sub">Beispiel, 8 kWp-Anlage, je Jahreszeit</p>
-
-      <div class="season-tabs">
-        <input type="radio" name="season-pv" id="pv-winter" checked>
-        <input type="radio" name="season-pv" id="pv-fruehling">
-        <input type="radio" name="season-pv" id="pv-sommer">
-        <input type="radio" name="season-pv" id="pv-herbst">
-        <div class="season-tablist">
-          <label for="pv-winter">Winter</label>
-          <label for="pv-fruehling">Frühling</label>
-          <label for="pv-sommer">Sommer</label>
-          <label for="pv-herbst">Herbst</label>
-        </div>
-
-        <div class="season-panel" data-p="winter">
-          <div class="persona-big">+27 CHF<span>weniger Kosten, dieses Quartal</span></div>
-          <div class="persona-compare">
-            <span>Bisher 186 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG 159 CHF</span>
-          </div>
-          <p class="persona-note">Im Winter liefert die Anlage wenig. Trotzdem lohnt sich die LEG durch
-            den günstigeren Einkauf.</p>
-        </div>
-        <div class="season-panel" data-p="fruehling">
-          <div class="persona-big">+31 CHF<span>bleiben zusätzlich, dieses Quartal</span></div>
-          <div class="persona-compare">
-            <span>Bisher &minus;29 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG &minus;60 CHF</span>
-          </div>
-          <p class="persona-note">Im Frühling deckt die Anlage schon vieles selber ab. Der Überschuss
-            bringt zusätzlich Geld.</p>
-        </div>
-        <div class="season-panel" data-p="sommer">
-          <div class="persona-big">+32 CHF<span>bleiben zusätzlich, dieses Quartal</span></div>
-          <div class="persona-compare">
-            <span>Bisher &minus;104 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG &minus;136 CHF</span>
-          </div>
-          <p class="persona-note">Im Sommer produziert die Anlage am meisten. Der grösste Teil davon
-            geht mit der LEG direkt an Nachbarn.</p>
-        </div>
-        <div class="season-panel" data-p="herbst">
-          <div class="persona-big">+29 CHF<span>weniger Kosten, dieses Quartal</span></div>
-          <div class="persona-compare">
-            <span>Bisher 93 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG 64 CHF</span>
-          </div>
-          <p class="persona-note">Im Herbst sinkt die Produktion wieder. Ein Teil des Stroms kommt neu
-            günstiger von der LEG.</p>
-        </div>
+      <p class="persona-sub">Beispiel, eigene PV-Anlage</p>
+      <div class="persona-big">+119 CHF<span>weniger Stromkosten, pro Jahr</span></div>
+      <div class="persona-compare">
+        <span>Bisher 145 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG 26 CHF</span>
       </div>
+      <p class="persona-note">Du bekommst mehr Geld für deinen Solarstrom, wenn ihn ein Nachbar
+        direkt bezieht, statt ihn wie heute zu einem tieferen Preis ans allgemeine Netz abzugeben.</p>
     </div>
   </div>
 
   <p class="disclaimer">Beträge exkl. MWST, ohne Systemdienstleistungen, Netzzuschlag, Gemeindeabgaben
     und Messtarif, die bleiben unabhängig von der LEG gleich. Beide Fälle rechnen mit Durchschnittswerten
     für ein Einfamilienhaus in der Region (Quellen: EnergieSchweiz/BFE für den Verbrauch, Swissolar für
-    Anlagengrösse und Eigenverbrauch). Die saisonale Verteilung der Solarproduktion (Winter 9%, Frühling
-    32%, Sommer 40%, Herbst 19% des Jahresertrags) stammt aus der BFE-Studie Winterstrom Schweiz.
-    Annahmen: 11 Rp./kWh für Strom, der innerhalb der LEG gehandelt wird, 30% des Stroms laufen effektiv
-    über die LEG. Keine garantierten Werte.</p>
-</section>
-
-<section id="funktion">
-  <h2>So funktioniert der Stromfluss</h2>
-  <p>Am Kabel ändert sich nichts, nur an der Abrechnung. Produziert die Solaranlage einer Nachbarin
-    tagsüber mehr, als im eigenen Haus gebraucht wird, fliesst der Überschuss übers bestehende Netz
-    weiter zu anderen Häusern in der Gemeinschaft, statt weit weg im überregionalen Netz zu verschwinden.</p>
-  <p>Gemessen wird das im 15-Minuten-Takt über die intelligenten Stromzähler. Reicht der lokale
-    Solarstrom in einem Zeitfenster nicht für alle, wird er anteilsmässig nach Verbrauch aufgeteilt:
-    Wer in diesem Moment mehr bezieht, bekommt auch mehr vom günstigeren, lokalen Strom.</p>
-
-  <div class="flow">
-    <svg viewBox="0 0 340 110" width="100%" role="img" aria-label="Stromfluss von der Solaranlage über die Netzstation zum Nachbarhaus">
-      <path class="flow-line" d="M55 30 H155" />
-      <path class="flow-line" d="M185 30 H285" />
-      <g font-size="30" text-anchor="middle">
-        <text x="40" y="42">&#9728;&#65039;</text>
-        <text x="170" y="42">&#9889;</text>
-        <text x="300" y="42">&#127968;</text>
-      </g>
-      <g font-size="11" text-anchor="middle" fill="#5b6a61">
-        <text x="40" y="78">PV-Anlage</text>
-        <text x="170" y="78">Netzstation</text>
-        <text x="300" y="78">Nachbarhaus</text>
-      </g>
-    </svg>
-  </div>
+    Anlagengrösse und Eigenverbrauch). Annahmen: 11 Rp./kWh für Strom, der innerhalb der LEG gehandelt
+    wird, 30% des Stroms laufen effektiv über die LEG. Keine garantierten Werte.</p>
 </section>
 
 <section id="vor-nachteile">
@@ -476,7 +360,7 @@
         <li>Bis zu 40% weniger Netznutzungskosten auf dem intern bezogenen Strom</li>
         <li>Keine baulichen Anpassungen oder neuen Installationen nötig</li>
         <li>Bleibt Kundin bzw. Kunde der Technischen Betriebe Sulgen, keine neuen Verträge mit Dritten</li>
-        <li>Jederzeit wieder austrittsfähig, anders als beim ZEV</li>
+        <li>Jederzeit wieder austrittsfähig</li>
         <li>Lokal produzierter Solarstrom bleibt in der Nachbarschaft</li>
       </ul>
     </div>
@@ -486,7 +370,6 @@
         <li>Braucht einen intelligenten Stromzähler (Smart Meter) an jeder Liegenschaft</li>
         <li>Definitive Rabattstufe bestätigen die Technischen Betriebe erst nach der Anmeldung</li>
         <li>Abrechnung des intern gehandelten Stroms muss unter den Teilnehmenden privat geregelt werden</li>
-        <li>Wer bereits in einem ZEV oder vZEV ist, kann nur als ganze Gemeinschaft beitreten</li>
         <li>Die effektive Ersparnis hängt vom eigenen Verbrauchsprofil ab</li>
       </ul>
     </div>
@@ -514,31 +397,23 @@
       <a href="https://www.openstreetmap.org/?mlat=47.5404&amp;mlon=9.1904#map=16/47.5404/9.1904" target="_blank" rel="noopener">grössere Karte anzeigen</a>.</p>
   </div>
 
-  <p style="margin-top:1rem">Eine eigene Solaranlage braucht nicht jede Teilnehmerin und jeder Teilnehmer.
-    Es reicht, wenn insgesamt genug PV-Leistung in der Gemeinschaft vorhanden ist (gesetzlich mindestens
-    5% der gesamten Anschlussleistung). Das ist bei uns bereits heute der Fall, da mehrere Haushalte
-    eine PV-Anlage betreiben. Ein intelligenter Stromzähler (Smart Meter) ist Voraussetzung; die
-    Technischen Betriebe prüfen das bei der Anmeldung für jede Liegenschaft.</p>
+  <p style="margin-top:1rem">Eine eigene Solaranlage braucht nicht jede Teilnehmerin und jeder Teilnehmer,
+    es reicht, wenn insgesamt genug PV-Leistung in der Gemeinschaft vorhanden ist. Das ist bei uns bereits
+    heute der Fall, da mehrere Haushalte eine PV-Anlage betreiben. Ein intelligenter Stromzähler (Smart
+    Meter) ist Voraussetzung, die Technischen Betriebe prüfen das bei der Anmeldung.</p>
 </section>
 
 <section id="ablauf">
   <h2>Wie geht es weiter</h2>
   <ol class="timeline">
-    <li><strong>Interesse sammeln.</strong> Diese Seite ist der erste Schritt, um zu sehen, wie viele
-      Nachbarn mitmachen wollen.</li>
-    <li><strong>Anmeldung bei den Technischen Betrieben Sulgen.</strong> Die Gründung einer LEG ist
-      Privatsache, die Teilnehmerliste geht anschliessend gemeinsam ans Elektrizitätswerk.</li>
-    <li><strong>Vertrag.</strong> Das Werk stellt einen Vertrag zwischen der LEG und den Technischen
-      Betrieben aus, mit einer Person als Vertretung nach aussen.</li>
+    <li><strong>Interesse? Meld dich einfach bei mir</strong>, dann nehme ich dich in die Liste auf.</li>
+    <li><strong>Anmeldung ans Werk.</strong> Die Gründung ist Privatsache, die Teilnehmerliste geht
+      danach gemeinsam an die Technischen Betriebe, die einen Vertrag zwischen LEG und Werk ausstellen.</li>
     <li><strong>Aktivierung.</strong> Die Anmeldung muss drei Monate vor einem Quartalsbeginn erfolgen,
-      die Aktivierung erfolgt danach innerhalb von drei Monaten.</li>
-    <li><strong>Jederzeit austreten.</strong> Anders als bei einem ZEV kann man eine LEG wieder verlassen,
-      mit einem einfachen Austrittsformular.</li>
+      die Aktivierung danach innerhalb von drei Monaten.</li>
+    <li><strong>Jederzeit austreten.</strong> Man kann eine LEG wieder verlassen, unkompliziert mit
+      einem Formular.</li>
   </ol>
-  <div class="disclaimer">
-    Wer bereits Teil eines ZEV oder vZEV ist (z.B. gemeinsame Anlage in einem Mehrfamilienhaus), kann nur
-    als ganzer Zusammenschluss der LEG beitreten, nicht als einzelne Partei.
-  </div>
 </section>
 
 </main>
