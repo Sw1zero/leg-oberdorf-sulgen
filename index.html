@@ -187,6 +187,55 @@
   .pro h3, .con h3 { margin-top: 0; }
   .pro ul.plain, .con ul.plain { margin: 0; }
   .pro ul.plain li, .con ul.plain li { margin-bottom: 0.6rem; font-size: 0.95rem; }
+  .personas {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    margin: 1.25rem 0;
+  }
+  .persona-card {
+    flex: 1 1 15rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem 1.4rem;
+  }
+  .persona-card h3 {
+    margin: 0 0 0.9rem;
+    font-size: 1.05rem;
+    line-height: 1.3;
+  }
+  .persona-sub {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+    margin-top: 0.2rem;
+  }
+  .bar-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+  }
+  .bar-label { flex: 0 0 4.2rem; color: var(--muted); }
+  .bar-track {
+    flex: 1 1 auto;
+    max-width: 7rem;
+    height: 0.55rem;
+    background: #eef1ec;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .bar-fill { height: 100%; border-radius: 999px; }
+  .bar-fill.bar-old { background: #c9d2cc; }
+  .bar-fill.bar-new { background: var(--green); }
+  .bar-value { flex: 0 0 auto; font-weight: 600; font-size: 0.82rem; white-space: nowrap; }
+  .breakdown { margin: 0.9rem 0 0.6rem; padding-left: 1.1rem; }
+  .breakdown li { font-size: 0.85rem; margin-bottom: 0.3rem; color: var(--muted); }
+  .breakdown li strong { color: var(--green-dark); }
+  .persona-total { font-size: 0.92rem; margin: 0; }
 </style>
 </head>
 <body>
@@ -241,35 +290,68 @@
 </section>
 
 <section id="rechenbeispiel">
-  <h2>Rechenbeispiel aus der Nachbarschaft</h2>
-  <p>Meine eigene Stromrechnung fürs 2. Quartal 2026, ein sonniges Quartal: Bezug ab Netz 622 kWh,
-    Netznutzung dafür 68.19 CHF. Das ist bereits der Bezug nach Abzug des Eigenverbrauchs aus meiner
-    eigenen PV-Anlage, die im gleichen Zeitraum fast 7'000 kWh produziert und ins Netz eingespeist hat.
-    Ohne eigene Solaranlage wäre der Bezug ein Vielfaches davon.</p>
+  <h2>Rechenbeispiel: drei Fälle aus der Nachbarschaft</h2>
+  <p>Wie viel die LEG konkret bringt, hängt vom eigenen Verbrauch ab, davon, ob man selber eine
+    PV-Anlage hat, und davon, wie viel Strom effektiv innerhalb der Gemeinschaft gehandelt wird. Alle
+    drei Beispiele rechnen mit einem angenommenen internen Verrechnungspreis von
+    <strong>11 Rp./kWh</strong> (Mittelwert zwischen der heutigen Rückliefervergütung von 7 Rp./kWh und
+    dem Energietarif von 15 Rp./kWh, unter den Teilnehmenden frei verhandelbar) und einem angenommenen
+    Anteil von <strong>30%</strong> des Stroms, der effektiv innerhalb der LEG gehandelt wird. Wer
+    Solarstrom verkauft, verdient dabei 4 Rp./kWh mehr als heute bei der Rückspeisung ans Netz. Wer
+    Strom bezieht, bezahlt dafür 4 Rp./kWh weniger als heute, zusätzlich zum Netznutzungsrabatt.</p>
 
-  <div class="card">
-    <div class="stat-row">
-      <div class="stat"><div class="num">68.19</div><div class="label">CHF Netznutzung im Quartal, heute ohne LEG</div></div>
+  <div class="personas">
+    <div class="persona-card">
+      <h3>Ich heute<span class="persona-sub">Reale Zahlen, 2. Quartal 2026</span></h3>
+      <div class="bars">
+        <div class="bar-row"><span class="bar-label">Ohne LEG</span><div class="bar-track"><div class="bar-fill bar-old" style="width:74%"></div></div><span class="bar-value">&minus;277.35 CHF</span></div>
+        <div class="bar-row"><span class="bar-label">Mit LEG</span><div class="bar-track"><div class="bar-fill bar-new" style="width:100%"></div></div><span class="bar-value">&minus;375.89 CHF</span></div>
+      </div>
+      <ul class="plain breakdown">
+        <li>Minderaufwand Einkauf <strong>+7.46 CHF</strong></li>
+        <li>Minderaufwand Netznutzung <strong>+7.57 CHF</strong></li>
+        <li>Mehrertrag Verkauf <strong>+83.51 CHF</strong></li>
+      </ul>
+      <p class="persona-total">Rund <strong>99 CHF</strong> mehr pro Quartal, vor allem weil meine
+        PV-Anlage viel mehr produziert, als ich selber verbrauche.</p>
+    </div>
+
+    <div class="persona-card">
+      <h3>Neuer Teilnehmer ohne PV<span class="persona-sub">Beispiel, 4'500 kWh Verbrauch/Jahr</span></h3>
+      <div class="bars">
+        <div class="bar-row"><span class="bar-label">Ohne LEG</span><div class="bar-track"><div class="bar-fill bar-old" style="width:100%"></div></div><span class="bar-value">1'083 CHF</span></div>
+        <div class="bar-row"><span class="bar-label">Mit LEG</span><div class="bar-track"><div class="bar-fill bar-new" style="width:90%"></div></div><span class="bar-value">980 CHF</span></div>
+      </div>
+      <ul class="plain breakdown">
+        <li>Minderaufwand Einkauf <strong>+54 CHF</strong></li>
+        <li>Minderaufwand Netznutzung <strong>+49 CHF</strong></li>
+      </ul>
+      <p class="persona-total">Rund <strong>103 CHF</strong> weniger pro Jahr, ganz ohne eigene
+        Solaranlage.</p>
+    </div>
+
+    <div class="persona-card">
+      <h3>Neuer Teilnehmer mit PV<span class="persona-sub">Beispiel, 8 kWp-Anlage</span></h3>
+      <div class="bars">
+        <div class="bar-row"><span class="bar-label">Ohne LEG</span><div class="bar-track"><div class="bar-fill bar-old" style="width:100%"></div></div><span class="bar-value">145 CHF</span></div>
+        <div class="bar-row"><span class="bar-label">Mit LEG</span><div class="bar-track"><div class="bar-fill bar-new" style="width:18%"></div></div><span class="bar-value">26 CHF</span></div>
+      </div>
+      <ul class="plain breakdown">
+        <li>Minderaufwand Einkauf <strong>+25 CHF</strong></li>
+        <li>Minderaufwand Netznutzung <strong>+27 CHF</strong></li>
+        <li>Mehrertrag Verkauf <strong>+67 CHF</strong></li>
+      </ul>
+      <p class="persona-total">Von <strong>145 CHF</strong> auf noch <strong>26 CHF</strong> Netto-Stromkosten
+        im Jahr.</p>
     </div>
   </div>
 
-  <p>Der LEG-Rabatt greift nur auf dem Teil des Bezugs, der zeitgleich mit der Solarproduktion einer
-    Nachbarin oder eines Nachbarn erfolgt. Wie gross dieser Anteil effektiv ist, zeigt sich erst im
-    Betrieb. Als Grössenordnung zwei Annahmen:</p>
-
-  <table>
-    <thead>
-      <tr><th>Angenommener Anteil LEG-intern</th><th>Ersparnis in diesem Quartal</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>20%</td><td class="new">5.45 CHF</td></tr>
-      <tr><td>50%</td><td class="new">13.65 CHF</td></tr>
-    </tbody>
-  </table>
-  <p style="font-size:0.9rem; color:var(--muted)">Dieses Quartal ist wegen der eigenen PV-Anlage dasjenige
-    mit dem tiefsten Netzbezug im Jahr. In den Wintermonaten ist der Bezug bei allen Haushalten höher,
-    entsprechend fällt dort auch die absolute Ersparnis in Franken höher aus. Je mehr Nachbarn mit
-    PV-Anlage mitmachen, desto grösser der gemeinsame Effekt für alle.</p>
+  <p class="disclaimer">Alle Beträge exkl. MWST und ohne Systemdienstleistungen, Netzzuschlag,
+    Gemeindeabgaben und Messtarif, diese bleiben unabhängig von der LEG gleich hoch. "Ich heute" basiert
+    auf meiner echten Stromrechnung. Die zwei anderen Fälle rechnen mit typischen Durchschnittswerten für
+    ein Einfamilienhaus in der Region (Quellen: EnergieSchweiz/BFE für den Verbrauch, Swissolar-Faustregeln
+    für Anlagengrösse und Eigenverbrauch). Interner Verrechnungspreis und LEG-interner Anteil sind
+    Beispielannahmen, keine garantierten Werte.</p>
 </section>
 
 <section id="funktion">
