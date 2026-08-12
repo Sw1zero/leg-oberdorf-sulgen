@@ -261,6 +261,38 @@
     color: var(--muted);
     margin: 0;
   }
+  .season-tabs input { display: none; }
+  .season-tablist {
+    display: flex;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 1.1rem;
+    flex-wrap: wrap;
+  }
+  .season-tablist label {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--muted);
+  }
+  .season-tabs:has(#s1-winter:checked) label[for="s1-winter"],
+  .season-tabs:has(#s1-fruehling:checked) label[for="s1-fruehling"],
+  .season-tabs:has(#s1-sommer:checked) label[for="s1-sommer"],
+  .season-tabs:has(#s1-herbst:checked) label[for="s1-herbst"] {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+  }
+  .season-panel { display: none; }
+  .season-tabs:has(#s1-winter:checked) .season-panel[data-p="winter"],
+  .season-tabs:has(#s1-fruehling:checked) .season-panel[data-p="fruehling"],
+  .season-tabs:has(#s1-sommer:checked) .season-panel[data-p="sommer"],
+  .season-tabs:has(#s1-herbst:checked) .season-panel[data-p="herbst"] {
+    display: block;
+  }
 </style>
 </head>
 <body>
@@ -324,13 +356,53 @@
     <div class="persona-card persona-1">
       <div class="persona-icon">&#9728;&#65039;</div>
       <h3>Heute ohne LEG, mit PV-Anlage</h3>
-      <p class="persona-sub">Meine echte Rechnung, 2. Quartal 2026</p>
-      <div class="persona-big">+99 CHF<span>bleiben mir zusätzlich, pro Quartal</span></div>
-      <div class="persona-compare">
-        <span>Bisher &minus;277 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG &minus;376 CHF</span>
+      <p class="persona-sub">Meine eigenen Messwerte, mit heutigen Tarifen gerechnet</p>
+
+      <div class="season-tabs">
+        <input type="radio" name="season1" id="s1-winter" checked>
+        <input type="radio" name="season1" id="s1-fruehling">
+        <input type="radio" name="season1" id="s1-sommer">
+        <input type="radio" name="season1" id="s1-herbst">
+        <div class="season-tablist">
+          <label for="s1-winter">Winter</label>
+          <label for="s1-fruehling">Frühling</label>
+          <label for="s1-sommer">Sommer</label>
+          <label for="s1-herbst">Herbst</label>
+        </div>
+
+        <div class="season-panel" data-p="winter">
+          <div class="persona-big">+65 CHF<span>weniger Kosten, dieses Quartal</span></div>
+          <div class="persona-compare">
+            <span>Bisher 407 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG 342 CHF</span>
+          </div>
+          <p class="persona-note">Im Winter produziert meine Anlage kaum Strom, ich beziehe die meiste
+            Zeit vom Netz. Auch dann lohnt sich die LEG, weil ein Teil günstiger eingekauft wird.</p>
+        </div>
+        <div class="season-panel" data-p="fruehling">
+          <div class="persona-big">+98 CHF<span>bleiben mir zusätzlich, dieses Quartal</span></div>
+          <div class="persona-compare">
+            <span>Bisher &minus;331 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG &minus;429 CHF</span>
+          </div>
+          <p class="persona-note">Im Frühling produziert meine Anlage schon kräftig. Der Überschuss
+            ergibt eine Gutschrift, mit der LEG fällt sie höher aus.</p>
+        </div>
+        <div class="season-panel" data-p="sommer">
+          <div class="persona-big">+76 CHF<span>bleiben mir zusätzlich, dieses Quartal</span></div>
+          <div class="persona-compare">
+            <span>Bisher &minus;226 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG &minus;302 CHF</span>
+          </div>
+          <p class="persona-note">Im Sommer liefert die Anlage weiterhin viel Überschuss. Ein Teil davon
+            geht mit der LEG direkt an Nachbarn statt ans allgemeine Netz.</p>
+        </div>
+        <div class="season-panel" data-p="herbst">
+          <div class="persona-big">+60 CHF<span>weniger Kosten, dieses Quartal</span></div>
+          <div class="persona-compare">
+            <span>Bisher 462 CHF</span><span class="arrow">&rarr;</span><span>Mit LEG 402 CHF</span>
+          </div>
+          <p class="persona-note">Im Herbst sinkt die Produktion wieder, ich beziehe mehr, als ich
+            selber herstelle. Die LEG hilft trotzdem, einen Teil günstiger einzukaufen.</p>
+        </div>
       </div>
-      <p class="persona-note">Meine Solaranlage produziert im Sommer deutlich mehr, als ich selber
-        verbrauche. Der Überschuss ergibt schon heute eine Gutschrift, mit der LEG fällt sie höher aus.</p>
     </div>
 
     <div class="persona-card persona-2">
@@ -358,10 +430,13 @@
     </div>
   </div>
 
-  <p class="disclaimer">Beträge exkl. MWST, ohne Systemdienstleistungen, Netzzuschlag, Gemeindeabgaben
-    und Messtarif, die bleiben unabhängig von der LEG gleich. "Heute ohne LEG, mit PV-Anlage" ist meine
-    echte Rechnung, die anderen zwei Fälle rechnen mit Durchschnittswerten (Quellen: EnergieSchweiz/BFE,
-    Swissolar). Keine garantierten Werte.</p>
+  <p class="disclaimer">Winter, Frühling, Sommer und Herbst basieren auf meinen eigenen gemessenen
+    Verbrauchs- und Produktionswerten aus vier Quartalsrechnungen, aber gerechnet mit den heutigen
+    Tarifen der Technischen Betriebe Sulgen, nicht mit den Tarifen, die damals effektiv galten. Beträge
+    exkl. MWST, ohne Systemdienstleistungen, Netzzuschlag, Gemeindeabgaben und Messtarif, die bleiben
+    unabhängig von der LEG gleich. Die anderen zwei Fälle rechnen mit Durchschnittswerten (Quellen:
+    EnergieSchweiz/BFE, Swissolar). Annahmen: 11 Rp./kWh für Strom, der innerhalb der LEG gehandelt wird,
+    30% des Stroms laufen effektiv über die LEG. Keine garantierten Werte.</p>
 </section>
 
 <section id="funktion">
@@ -369,6 +444,9 @@
   <p>Am Kabel ändert sich nichts, nur an der Abrechnung. Produziert die Solaranlage einer Nachbarin
     tagsüber mehr, als im eigenen Haus gebraucht wird, fliesst der Überschuss übers bestehende Netz
     weiter zu anderen Häusern in der Gemeinschaft, statt weit weg im überregionalen Netz zu verschwinden.</p>
+  <p>Gemessen wird das im 15-Minuten-Takt über die intelligenten Stromzähler. Reicht der lokale
+    Solarstrom in einem Zeitfenster nicht für alle, wird er anteilsmässig nach Verbrauch aufgeteilt:
+    Wer in diesem Moment mehr bezieht, bekommt auch mehr vom günstigeren, lokalen Strom.</p>
 
   <div class="flow">
     <svg viewBox="0 0 340 110" width="100%" role="img" aria-label="Stromfluss von der Solaranlage über die Netzstation zum Nachbarhaus">
